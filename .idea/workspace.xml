@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8884c5b6-de26-4c54-821a-1231d85965d7" name="Changes" comment="" />
+    <list default="true" id="8884c5b6-de26-4c54-821a-1231d85965d7" name="Changes" comment="frontend-script">
+      <change afterPath="$PROJECT_DIR$/Cart.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Catalogue.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dispatch.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Mongodb.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MySql.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Payment.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RabbitMQ.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Redis.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shipping.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +26,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2CwcGdyVjJN0rVTSD94U1D6bPc8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,6 +48,29 @@
       <option name="presentableId" value="Default" />
       <updated>1659716996159</updated>
     </task>
+    <task id="LOCAL-00001" summary="frontend-script">
+      <created>1659717176008</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659717176008</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="frontend-script" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend-script" />
   </component>
 </project>
