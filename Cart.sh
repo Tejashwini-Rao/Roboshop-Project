@@ -1,19 +1,19 @@
 #!/bin/bash
  set -e
- curl -sL https://rpm.nodesource.com/setup_lts.x | bash >/temp/cart.log
- yum install nodejs -y>/temp/cart.log
+ curl -sL https://rpm.nodesource.com/setup_lts.x | bash >/temp/Cart.log
+ yum install nodejs -y>/temp/Cart.log
 
- useradd roboshop>/temp/cart.log
+ useradd roboshop>/temp/Cart.log
 
- curl -s -L -o /tmp/cart.zip "https://github.com/roboshop-devops-project/cart/archive/main.zip">/temp/cart.log
- cd /home/roboshop>/temp/cart.log
- rm -rf cart>/temp/cart.log
- unzip -o /tmp/cart.zip>/temp/cart.log
- mv cart-main cart>/temp/cart.log
- cd cart>/temp/cart.log
- npm install>/temp/cart.log
+ curl -s -L -o /tmp/Cart.zip "https://github.com/roboshop-devops-project/Cart/archive/main.zip">/temp/Cart.log
+ cd /home/roboshop>/temp/Cart.log
+ rm -rf Cart>/temp/Cart.log
+ unzip -o /tmp/Cart.zip>/temp/Cart.log
+ mv Cart-main Cart>/temp/Cart.log
+ cd Cart>/temp/Cart.log
+ npm install>/temp/Cart.log
 
- mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service>/temp/cart.log
- systemctl daemon-reload>/temp/cart.log
- systemctl start cart>/temp/cart.log
- systemctl enable cart>/temp/cart.log
+ mv /home/roboshop/Cart/systemd.service /etc/systemd/system/Cart.service>/temp/Cart.log
+ systemctl daemon-reload>/temp/Cart.log
+ systemctl start Cart>/temp/Cart.log
+ systemctl enable Cart>/temp/Cart.log
