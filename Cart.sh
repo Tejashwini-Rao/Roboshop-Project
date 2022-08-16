@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
  set -e
  curl -sL https://rpm.nodesource.com/setup_lts.x | bash >/temp/cart.log
  yum install nodejs -y>/temp/cart.log
