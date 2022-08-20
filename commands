@@ -1,3 +1,0 @@
-a=10
-echo 'a=$a'
-echo -e "\e[35mHrllo\e[0m"
