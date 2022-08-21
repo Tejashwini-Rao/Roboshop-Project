@@ -35,6 +35,7 @@
       echo -e "\e[31mFAILURE\e[0m"
       exit
     fi
+  fi
 
  echo downloding application content
  curl -s -L -o /tmp/cart.zip "https://github.com/roboshop-devops-project/cart/archive/main.zip"&>>/tmp/cart.log
