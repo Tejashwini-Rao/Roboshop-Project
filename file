@@ -1,0 +1,4 @@
+ if [abd==abc]
+ then
+    echo -e "hello teju"
+ fi
