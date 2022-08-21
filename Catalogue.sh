@@ -1,6 +1,6 @@
 
 source Common.sh
-component=catalouge
+component=Catalouge
 
  NodeJS
 
