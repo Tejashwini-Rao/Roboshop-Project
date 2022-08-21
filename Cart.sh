@@ -23,12 +23,11 @@
   fi
 
  id roboshop&>>/tmp/cart.log
- if [ $? -ne 0]
- then
+ if [ $? -ne 0];then
    echo adding user
    useradd roboshop&>>/tmp/cart.log
 
-   if [ $? -eq 0 ];
+   if [ $? -eq 0 ]
     then
       echo -e "\e[32mSUCCESS\e[0m"
     else
