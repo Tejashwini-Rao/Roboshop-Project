@@ -1,5 +1,5 @@
-set -e
-source=common.sh
+
+source common.sh
 componet=catalouge
 NodeJS
 
