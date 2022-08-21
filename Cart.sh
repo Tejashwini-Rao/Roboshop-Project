@@ -16,6 +16,7 @@
  echo downloding application content
  curl -s -L -o /tmp/Cart.zip "https://github.com/roboshop-devops-project/Cart/archive/main.zip">/tmp/Cart.log
  cd /home/roboshop>/tmp/Cart.log
+ echo $?
 
  echo cleaning old application
  rm -rf Cart>/tmp/Cart.log
@@ -38,10 +39,4 @@ echo extracting application archives
   systemctl enable cart
   echo $?
 
-echo configuring cart services
- mv /home/roboshop/Cart/systemd.service /etc/systemd/system/Cart.service>/tmp/Cart.log
- systemctl daemon-reload>/tmp/Cart.log
 
- echo starting cart service
- systemctl start Cart>/tmp/Cart.log
- systemctl enable Cart>/tmp/Cart.log
