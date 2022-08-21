@@ -1,5 +1,5 @@
 #!/bin/bash
-Status Check{
+Status Check(){
   if [ $? -eq 0 ]
     then
       echo -e "\e[32mSUCCESS\e[0m"
