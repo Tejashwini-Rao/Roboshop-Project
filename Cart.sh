@@ -2,7 +2,7 @@
 
 
  echo setting nodeJS repos
- curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>&>>/tmp/cart.log
+ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/cart.log
  echo $?
 
  echo installing NodeJS
