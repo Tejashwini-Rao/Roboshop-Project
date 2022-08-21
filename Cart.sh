@@ -7,7 +7,7 @@
  then
    echo -e "\e[32mSUCCESS\e[0m"
  else
-   -e "\e[31mFAILURE\e[0m"
+   echo -e "\e[31mFAILURE\e[0m"
  fi
 
  echo installing NodeJS
@@ -17,7 +17,7 @@
   then
     echo -e "\e[32mSUCCESS\e[0m"
   else
-    -e "\e[31mFAILURE\e[0m"
+    echo -e "\e[31mFAILURE\e[0m"
   fi
 
  echo adding user
@@ -27,7 +27,7 @@
   then
     echo -e "\e[32mSUCCESS\e[0m"
   else
-    -e "\e[31mFAILURE\e[0m"
+    echo -e "\e[31mFAILURE\e[0m"
   fi
 
  echo downloding application content
@@ -47,7 +47,7 @@
   then
     echo -e "\e[32mSUCCESS\e[0m"
   else
-    -e "\e[31mFAILURE\e[0m"
+    echo -e "\e[31mFAILURE\e[0m"
   fi
 echo extracting application archives
  unzip -o /tmp/cart.zip&>>/tmp/cart.log
@@ -58,7 +58,7 @@ echo extracting application archives
   then
     echo -e "\e[32mSUCCESS\e[0m"
   else
-    -e "\e[31mFAILURE\e[0m"
+    echo -e "\e[31mFAILURE\e[0m"
   fi
  echo installing NodeJS dependencies
  npm install&>>/tmp/cart.log
@@ -66,13 +66,19 @@ echo extracting application archives
   then
     echo -e "\e[32mSUCCESS\e[0m"
   else
-    -e "\e[31mFAILURE\e[0m"
+    echo -e "\e[31mFAILURE\e[0m"
   fi
   echo configuring cart services
-  mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service
-  systemctl daemon-reload
-  systemctl start cart
-  systemctl enable cart
+  mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service&>>/tmp/cart.log
+  systemctl daemon-reload&>>/tmp/cart.log
+  systemctl start cart&>>/tmp/cart.log
+  systemctl enable cart&>>/tmp/cart.log
+  if [ $? -eq 0 ]
+    then
+      echo -e "\e[32mSUCCESS\e[0m"
+    else
+      echo -e "\e[31mFAILURE\e[0m"
+    fi
 
   if [ $? -eq 0 ]
    then
