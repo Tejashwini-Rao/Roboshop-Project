@@ -16,11 +16,12 @@
  echo downloding application content
  curl -s -L -o /tmp/Cart.zip "https://github.com/roboshop-devops-project/Cart/archive/main.zip">/tmp/Cart.log
  cd /home/roboshop>/tmp/Cart.log
+
+ echo cleaning old application
+ rm -rf Cart>/tmp/Cart.log
  echo $?
 
- echo extracting application archives
- recho removing files
- rm -rf Cart>/tmp/Cart.log
+echo extracting application archives
  unzip -o /tmp/Cart.zip>/tmp/Cart.log
  mv Cart-main Cart>/tmp/Cart.log
  cd Cart>/tmp/Cart.log
