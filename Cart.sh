@@ -38,7 +38,7 @@
   then
     echo -e "\e[32mSUCCESS\e[0m"
   else
-    -e "\e[31mFAILURE\e[0m"
+    echo -e "\e[31mFAILURE\e[0m"
   fi
  echo cleaning old application
  rm -rf cart&>>/tmp/cart.log
