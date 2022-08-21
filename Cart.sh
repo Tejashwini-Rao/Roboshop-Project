@@ -8,6 +8,7 @@
    echo -e "\e[32mSUCCESS\e[0m"
  else
    echo -e "\e[31mFAILURE\e[0m"
+   exit
  fi
 
  echo installing NodeJS
@@ -18,6 +19,7 @@
     echo -e "\e[32mSUCCESS\e[0m"
   else
     echo -e "\e[31mFAILURE\e[0m"
+    exit
   fi
 
  echo adding user
@@ -28,6 +30,7 @@
     echo -e "\e[32mSUCCESS\e[0m"
   else
     echo -e "\e[31mFAILURE\e[0m"
+    exit
   fi
 
  echo downloding application content
@@ -39,6 +42,7 @@
     echo -e "\e[32mSUCCESS\e[0m"
   else
     echo -e "\e[31mFAILURE\e[0m"
+    exit
   fi
  echo cleaning old application
  rm -rf cart&>>/tmp/cart.log
@@ -48,6 +52,7 @@
     echo -e "\e[32mSUCCESS\e[0m"
   else
     echo -e "\e[31mFAILURE\e[0m"
+    exit
   fi
 echo extracting application archives
  unzip -o /tmp/cart.zip&>>/tmp/cart.log
@@ -59,6 +64,7 @@ echo extracting application archives
     echo -e "\e[32mSUCCESS\e[0m"
   else
     echo -e "\e[31mFAILURE\e[0m"
+    exit
   fi
  echo installing NodeJS dependencies
  npm install&>>/tmp/cart.log
@@ -67,6 +73,7 @@ echo extracting application archives
     echo -e "\e[32mSUCCESS\e[0m"
   else
     echo -e "\e[31mFAILURE\e[0m"
+    exit
   fi
   echo configuring cart services
   mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service&>>/tmp/cart.log
@@ -78,6 +85,7 @@ echo extracting application archives
       echo -e "\e[32mSUCCESS\e[0m"
     else
       echo -e "\e[31mFAILURE\e[0m"
+      exit
     fi
 
   if [ $? -eq 0 ]
