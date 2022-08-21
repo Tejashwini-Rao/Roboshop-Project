@@ -2,10 +2,10 @@
 source Common.sh
 component=Catalouge
 
- NodeJS
+NodeJS
 
 
-
+ echo installing services
  mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
  systemctl daemon-reload
  systemctl start catalogue
