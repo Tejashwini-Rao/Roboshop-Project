@@ -9,9 +9,10 @@
  # shellcheck disable=SC2034
  DEFAULT_PASSWORD=$(grep ' A temporary password' /var/log/mysqld.log | awk '{print $NF}')
 
- echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'RoboShop@1'; "| mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
+echo MYSQL_PASSWORD= $MYSQL_PASSWORD
+ echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_PASSWORD'; "| mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
 
- mysql -uroot -pRoboShop@1
+ echo "uninstall plugin validate_password"|mysql -uroot -p$MYSQL_PASSWORD
 #> uninstall plugin validate_password;
  curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip"
 
