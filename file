@@ -1,6 +1,6 @@
- if [abd==abd]
+ if [abd == abd]
  then
-    echo hello teju
+    echo hello
  else
     echo  hi
  fi
