@@ -1,4 +1,4 @@
- if ["abd"=="abc"]
+ if ["abd"=="abd"]
  then
     echo -e "hello teju"
  else
