@@ -1,4 +1,4 @@
- if [ abd == ABC ]
+ if [ abd == abg ]
  then
     echo hello
  else
