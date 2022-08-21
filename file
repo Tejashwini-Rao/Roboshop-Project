@@ -1,6 +1,6 @@
- if ["abd"=="abd"]
+ if [abd==abd]
  then
-    echo -e "hello teju"
+    echo hello teju
  else
-    echo -e "hi"
+    echo  hi
  fi
