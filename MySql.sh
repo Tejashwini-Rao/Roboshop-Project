@@ -9,7 +9,7 @@
  # shellcheck disable=SC2034
  DEFAULT_PASSWORD=$(grep ' A temporary password' /var/log/mysqld.log | awk '{print $NF}')
 
- echo "alter user 'root'@'localhost' IDENTIFIED with my_sqi_native_password by 'RoboShop@1'; "| mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
+ echo "alter user 'root'@'localhost' IDENTIFIED with my_sql_native_password by 'RoboShop@1'; "| mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
 
  mysql -uroot -pRoboShop@1
 #> uninstall plugin validate_password;
