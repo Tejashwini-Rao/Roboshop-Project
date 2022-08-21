@@ -3,7 +3,10 @@
 
  echo setting nodeJS repos
  curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/cart.log
- echo $?
+ if [ $? -eq 0 ]
+ then
+   echo -e "\e[32mSUCCESS\e[0m"
+ fi
 
  echo installing NodeJS
  yum install nodejs -y&>>/tmp/cart.log
