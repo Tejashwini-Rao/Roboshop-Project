@@ -1,6 +1,5 @@
 
 source Common.sh
-# shellcheck disable=SC2034
 component=Catalouge
 
 NodeJS
