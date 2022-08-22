@@ -25,25 +25,25 @@ APP_USER_SETUP() {
 
    APP_CLEAN() {
      echo Cleaning old application content
-     cd /home/roboshop &>>${LOG} && rm -rf ${COMPONENT} &>>${LOG}
+     cd /home/roboshop &>>${LOG} && rm -rf ${component} &>>${LOG}
      StatusCheck
 
      echo Extract Application Archive
-     unzip -o /tmp/${COMPONENT}.zip &>>${LOG} && mv ${COMPONENT}-main ${COMPONENT} &>>${LOG} && cd ${COMPONENT} &>>${LOG}
+     unzip -o /tmp/${component}.zip &>>${LOG} && mv ${component}-main ${component} &>>${LOG} && cd ${component} &>>${LOG}
      StatusCheck
    }
 
    SYSTEMD() {
      echo Update SystemD Config
-     sed -i -e 's/MONGO_DNSNAME/mongodb-dev.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb-dev.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis-dev.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue-dev.roboshop.internal/' -e 's/AMQPHOST/rabbitmq-dev.roboshop.internal/' -e 's/CARTHOST/cart-dev.roboshop.internal/' -e 's/USERHOST/user-dev.roboshop.internal/' -e 's/CARTENDPOINT/cart-dev.roboshop.internal/' -e 's/DBHOST/mysql-dev.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service &>>${LOG}
+     sed -i -e 's/MONGO_DNSNAME/mongodb-dev.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb-dev.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis-dev.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue-dev.roboshop.internal/' -e 's/AMQPHOST/rabbitmq-dev.roboshop.internal/' -e 's/CARTHOST/cart-dev.roboshop.internal/' -e 's/USERHOST/user-dev.roboshop.internal/' -e 's/CARTENDPOINT/cart-dev.roboshop.internal/' -e 's/DBHOST/mysql-dev.roboshop.internal/' /home/roboshop/${component}/systemd.service &>>${LOG}
      StatusCheck
 
-     echo Configuring ${COMPONENT} SystemD Service
-     mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>>${LOG} && systemctl daemon-reload &>>${LOG}
+     echo Configuring ${component} SystemD Service
+     mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>${LOG} && systemctl daemon-reload &>>${LOG}
      StatusCheck
 
-     echo Starting ${COMPONENT} Service
-     systemctl restart ${COMPONENT} &>>${LOG} && systemctl enable ${COMPONENT} &>>${LOG}
+     echo Starting ${component} Service
+     systemctl restart ${component} &>>${LOG} && systemctl enable ${component} &>>${LOG}
      StatusCheck
    }
 
@@ -106,7 +106,7 @@ JAVA() {
      exit 1
    fi
 
-   LOG=/tmp/${COMPONENT}.log
+   LOG=/tmp/${component}.log
    rm -f ${LOG}
 
 
