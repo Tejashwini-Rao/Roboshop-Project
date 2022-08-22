@@ -85,6 +85,21 @@ PYTHON() {
 
   SYSTEMD
 }
+JAVA() {
+  echo Install Maven
+  yum install maven -y &>>${LOG}
+  StatusCheck
+
+  APP_USER_SETUP
+  DOWNLOAD
+  APP_CLEAN
+
+  echo Make application package
+  mvn clean package &>>${LOG} && mv target/shipping-1.0.jar shipping.jar &>>${LOG}
+  StatusCheck
+
+  SYSTEMD
+}
    USER_ID=$(id -u)
    if [ $USER_ID -ne 0 ]; then
      echo -e "\e[31m You should run this script as root user or sudo\e[0m"
