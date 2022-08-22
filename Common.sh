@@ -35,9 +35,7 @@ NodeJS(){
    StatusCheck
 
   echo extracting application archives
-   unzip -o /tmp/${component}.zip&>>/tmp/${component}.log
-   mv ${component}-main ${component}&>>/tmp/${component}.log
-   cd ${component}&>>/tmp/${component}.log
+   unzip -o /tmp/${component}.zip&>>/tmp/${component}.log&&mv ${component}-main ${component}&>>/tmp/${component}.log&&cd ${component}&>>/tmp/${component}.log
   StatusCheck
 
    echo installing NodeJS dependencies
