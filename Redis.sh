@@ -1,8 +1,8 @@
 set -e
 
 
-COMPONENT=redis
-source common.sh
+component=redis
+source Common.sh
 
 echo Setup YUM Repo
 curl -L https://raw.githubusercontent.com/roboshop-devops-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo &>>${LOG}
