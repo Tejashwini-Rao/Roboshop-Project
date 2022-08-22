@@ -12,7 +12,42 @@ StatusCheck(){
    curl -s -L -o /tmp/${component}.zip "https://github.com/roboshop-devops-project/${component}/archive/main.zip"&>>/tmp/${component}.log
    cd /home/roboshop&>>/tmp/${component}.log
    StatusCheck
- }
+}
+
+APP_USER_SETUP() {
+     id roboshop &>>${LOG}
+     if [ $? -ne 0 ]; then
+       echo Adding Application User
+       useradd roboshop &>>${LOG}
+       StatusCheck
+     fi
+   }
+
+   APP_CLEAN() {
+     echo Cleaning old application content
+     cd /home/roboshop &>>${LOG} && rm -rf ${COMPONENT} &>>${LOG}
+     StatusCheck
+
+     echo Extract Application Archive
+     unzip -o /tmp/${COMPONENT}.zip &>>${LOG} && mv ${COMPONENT}-main ${COMPONENT} &>>${LOG} && cd ${COMPONENT} &>>${LOG}
+     StatusCheck
+   }
+
+   SYSTEMD() {
+     echo Update SystemD Config
+     sed -i -e 's/MONGO_DNSNAME/mongodb-dev.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb-dev.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis-dev.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue-dev.roboshop.internal/' -e 's/AMQPHOST/rabbitmq-dev.roboshop.internal/' -e 's/CARTHOST/cart-dev.roboshop.internal/' -e 's/USERHOST/user-dev.roboshop.internal/' -e 's/CARTENDPOINT/cart-dev.roboshop.internal/' -e 's/DBHOST/mysql-dev.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service &>>${LOG}
+     StatusCheck
+
+     echo Configuring ${COMPONENT} SystemD Service
+     mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service &>>${LOG} && systemctl daemon-reload &>>${LOG}
+     StatusCheck
+
+     echo Starting ${COMPONENT} Service
+     systemctl restart ${COMPONENT} &>>${LOG} && systemctl enable ${COMPONENT} &>>${LOG}
+     StatusCheck
+   }
+
+
 
 NodeJS(){
   echo setting nodeJS repos
@@ -23,35 +58,15 @@ NodeJS(){
    yum install nodejs -y&>>/tmp/${component}.log
   StatusCheck
 
-   id roboshop&>>/tmp/${component}.log
-   if [ $? -ne 0 ]; then
-     echo adding user
-     useradd roboshop&>>/tmp/${component}.log
-     StatusCheck
-    fi
-
+    APP_USER_SETUP
     DOWNLOAD
-
-   echo cleaning old application
-   rm -rf ${component}&>>/tmp/${component}.log
-   StatusCheck
-
-  echo extracting application archives
-   unzip -o /tmp/${component}.zip&>>/tmp/${component}.log && mv ${component}-main ${component}&>>/tmp/${component}.log&&cd ${component}&>>/tmp/${component}.log
-  StatusCheck
+    APP_CLEAN
 
    echo installing NodeJS dependencies
    npm install&>>/tmp/${component}.log
    StatusCheck
    
-    echo configuring ${component} services
-     mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service&>>/tmp/${component}.log && systemctl daemon-reload&>>/tmp/${component}.log
-     StatusCheck
-   
-     echo starting ${component} services
-     systemctl start ${component}&>>/tmp/${component}.log
-     systemctl enable ${component}&>>/tmp/${component}.log
-     StatusCheck
+    SYSTEMD
 }
    USER_ID=$(id -u)
    if [ $USER_ID -ne 0 ]; then
