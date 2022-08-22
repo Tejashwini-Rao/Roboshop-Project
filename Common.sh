@@ -30,6 +30,8 @@ NodeJS(){
      StatusCheck
     fi
 
+    DOWNLOAD
+
    echo cleaning old application
    rm -rf ${component}&>>/tmp/${component}.log
    StatusCheck
