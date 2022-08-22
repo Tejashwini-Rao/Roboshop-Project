@@ -13,8 +13,8 @@
 
    echo Extract Downloaded content
    unzip /tmp/frontend.zip&>>${LOG} && mv frontend-main/static/* . && mv frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
-   Stating
+   StatusCheck
 
    echo Stating Nginx
    systemctl restart nginx &>>${LOG} && systemctl enable nginx &>>{LOG}
-   Stating
+   StatusCheck
